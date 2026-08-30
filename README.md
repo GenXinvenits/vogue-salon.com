@@ -1,0 +1,1 @@
+Vogue Salon & Academy — light-only, simple and stylish multi-page edition. Dark theme and theme toggle removed. Pages: Home, Services, Bridal, Hair, Makeup, Nails, Skin, Academy, About, Booking.
