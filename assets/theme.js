@@ -3,54 +3,46 @@
   const key='vogue-theme';
   const media=window.matchMedia('(prefers-color-scheme: dark)');
 
-  // No saved preference = true automatic/system mode.
-  // A saved value is a manual override.
-  let saved=null;
-  try{saved=localStorage.getItem(key)}catch(e){}
-  if(saved==='light'||saved==='dark') root.dataset.theme=saved;
-  else delete root.dataset.theme;
+  // SYSTEM MODE IS THE DEFAULT. A saved value exists only after the user clicks the toggle.
+  function getSaved(){try{return localStorage.getItem(key)}catch(e){return null}}
+  function systemMode(){return media.matches?'dark':'light'}
+  function currentMode(){const saved=getSaved();return saved==='light'||saved==='dark'?saved:systemMode()}
 
-  function updateMeta(){
-    const dark=root.dataset.theme ? root.dataset.theme==='dark' : media.matches;
+  function apply(mode){
+    root.dataset.theme=mode;
+    root.style.colorScheme=mode;
     const meta=document.querySelector('meta[name="theme-color"]');
-    if(meta) meta.setAttribute('content',dark?'#151114':'#fffdfb');
+    if(meta) meta.content=mode==='dark'?'#151114':'#fffdfb';
     document.querySelectorAll('[data-theme-toggle]').forEach(function(button){
       const icon=button.querySelector('.theme-icon');
       const label=button.querySelector('.theme-label');
-      if(icon) icon.textContent=dark?'☾':'☀';
-      if(label) label.textContent=dark?'Dark':'Light';
-      button.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');
-      button.setAttribute('aria-pressed',dark?'true':'false');
+      if(icon) icon.textContent=mode==='dark'?'☾':'☀';
+      if(label) label.textContent=mode==='dark'?'Dark':'Light';
+      button.setAttribute('aria-label',mode==='dark'?'Switch to light theme':'Switch to dark theme');
     });
   }
 
+  // Explicitly apply the browser preference when there is no manual override.
+  function applySystem(){if(!getSaved()) apply(systemMode())}
+
   function toggle(){
-    const dark=root.dataset.theme ? root.dataset.theme==='dark' : media.matches;
-    const next=dark?'light':'dark';
-    root.dataset.theme=next;
+    const next=currentMode()==='dark'?'light':'dark';
     try{localStorage.setItem(key,next)}catch(e){}
-    updateMeta();
+    apply(next);
   }
+
+  // Apply immediately, including before DOMContentLoaded.
+  apply(currentMode());
 
   function init(){
     document.querySelectorAll('[data-theme-toggle]').forEach(function(button){
       button.addEventListener('click',toggle);
     });
-    updateMeta();
+    apply(currentMode());
   }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);else init();
 
-  // If the visitor has not manually overridden the theme, immediately follow OS changes.
-  function systemChanged(){
-    let savedNow=null;
-    try{savedNow=localStorage.getItem(key)}catch(e){}
-    if(savedNow!=='light'&&savedNow!=='dark'){
-      delete root.dataset.theme;
-      updateMeta();
-    }
-  }
-  if(media.addEventListener) media.addEventListener('change',systemChanged);
-  else media.addListener(systemChanged);
-
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
-  else init();
+  // Browser/OS changed its preferred appearance.
+  const onSystemChange=function(){if(!getSaved()) applySystem()};
+  if(media.addEventListener) media.addEventListener('change',onSystemChange);else media.addListener(onSystemChange);
 })();
