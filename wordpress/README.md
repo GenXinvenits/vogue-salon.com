@@ -14,7 +14,7 @@ This branch is a clean WordPress + Divi 5 migration of the Vogue Salon site.
 - Divi 5 installed and active
 - PHP 8.x recommended
 
-Divi 5 stores layouts as Gutenberg-style `wp:divi/*` blocks and its Theme Builder controls reusable header/footer templates. The migration follows that model rather than converting the old HTML into a legacy Divi 4 shortcode page. citeturn2search0turn1search3
+Divi 5 stores layouts as Gutenberg-style `wp:divi/*` blocks and its Theme Builder controls reusable header/footer templates. This migration follows that model rather than converting the old HTML into legacy Divi 4 shortcodes.
 
 ## Install
 
@@ -50,7 +50,7 @@ The page content uses the Divi 5 hierarchy:
 
 The visual/editorial layout is HTML inside Divi Text modules, while the surrounding page is native Divi 5 block markup. This keeps the design editable in the Divi Visual Builder while avoiding the legacy Divi 4 shortcode system.
 
-Divi 5 also supports Dynamic Content and Theme Builder templates, so the next migration stage can turn services, prices, galleries and booking data into reusable WordPress-managed content rather than hard-coded page copy. citeturn0search0turn1search0
+Divi 5 supports Dynamic Content and Theme Builder templates, so services, prices, galleries and booking data can later be moved into reusable WordPress-managed content instead of hard-coded page copy.
 
 ## Theme system
 
@@ -71,6 +71,6 @@ The static site's old CSS is not loaded by the WordPress theme.
 
 ## Theme Builder
 
-Divi 5's Theme Builder is the correct place for the reusable global header/footer. Divi supports exporting/importing Theme Builder templates as JSON. citeturn1search0turn1search8
+Divi 5's Theme Builder is the correct place for the reusable global header/footer. Divi supports exporting/importing Theme Builder templates as JSON.
 
 The migrator attempts to create those layouts using Divi's available Theme Builder PHP API. If the installed Divi build does not expose that API, the pages are still created and the header/footer layouts can be assigned manually in **Divi → Theme Builder**.
