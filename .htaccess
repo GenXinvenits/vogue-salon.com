@@ -33,6 +33,13 @@ DirectoryIndex index.html
     ExpiresByType application/javascript "access plus 1 month"
 </IfModule>
 
+# Inject the shared editorial system into the legacy subpage templates.
+# The selectors are scoped to .site-nav/.page-hero so the redesigned homepage is untouched.
+<IfModule mod_substitute.c>
+    AddOutputFilterByType SUBSTITUTE text/html
+    Substitute "s#</head>#<link rel=\"stylesheet\" href=\"/assets/subpages.css?v=1\"><script defer src=\"/assets/subpages.js?v=1\"></script></head>#i"
+</IfModule>
+
 # Basic security headers
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options "nosniff"
