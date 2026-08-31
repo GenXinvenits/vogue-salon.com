@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Vogue Salon — Divi 5 Migrator
  * Description: Creates the Vogue Salon & Academy pages and Divi 5 Theme Builder header/footer from the Vogue design system.
- * Version: 1.0.0
+ * Version: 1.0.1
  */
 defined('ABSPATH') || exit;
 
@@ -17,10 +17,8 @@ function vogue_divi5_markup($slug, $title, $tag) {
     $html .= '<div class="vogue-wrap vogue-quote"><p>Come for the service. Leave with a little more <em>you.</em></p></div>';
     $html .= '<div class="vogue-final"><div class="vogue-wrap vogue-final-inner"><div><div class="vogue-eyebrow">READY WHEN YOU ARE</div><h2>Step into<br><em>Vogue.</em></h2></div><a class="vogue-button" href="' . esc_url(home_url('/booking/')) . '">Book your visit</a></div></div>';
     $html .= '</div>';
-
     return '<!-- wp:divi/placeholder -->\n<!-- wp:divi/section {"builderVersion":"5.9.0"} -->\n<!-- wp:divi/row {"module":{"advanced":{"type":{"desktop":{"value":"1_1"}}}},"builderVersion":"5.9.0"} -->\n<!-- wp:divi/column {"module":{"advanced":{"type":{"desktop":{"value":"1_1"}}}},"builderVersion":"5.9.0"} -->\n<!-- wp:divi/text ' . wp_json_encode(['content'=>['innerContent'=>['desktop'=>['value'=>$html]]],'builderVersion'=>'5.9.0']) . ' /-->\n<!-- /wp:divi/column -->\n<!-- /wp:divi/row -->\n<!-- /wp:divi/section -->\n<!-- /wp:divi/placeholder -->';
 }
-
 function vogue_divi5_header_markup() {
     $html = '<header class="vogue-wp-header"><div class="vogue-wrap"><a class="vogue-wp-logo" href="' . esc_url(home_url('/')) . '">VOGUE</a><nav><a href="' . esc_url(home_url('/services/')) . '">Services</a><a href="' . esc_url(home_url('/hair/')) . '">Hair</a><a href="' . esc_url(home_url('/bridal/')) . '">Bridal</a><a href="' . esc_url(home_url('/academy/')) . '">Academy</a><a href="' . esc_url(home_url('/about/')) . '">About</a></nav><a class="vogue-button" href="' . esc_url(home_url('/booking/')) . '">Book</a></div></header>';
     return vogue_divi5_text_layout($html, 'Vogue Global Header', 'et_header_layout');
@@ -32,39 +30,33 @@ function vogue_divi5_footer_markup() {
 function vogue_divi5_text_layout($html, $title, $post_type) {
     return ['post_type'=>$post_type,'post_status'=>'publish','post_title'=>$title,'post_content'=>'<!-- wp:divi/placeholder -->\n<!-- wp:divi/section {"builderVersion":"5.9.0"} -->\n<!-- wp:divi/row {"builderVersion":"5.9.0"} -->\n<!-- wp:divi/column {"builderVersion":"5.9.0"} -->\n<!-- wp:divi/text '.wp_json_encode(['content'=>['innerContent'=>['desktop'=>['value'=>$html]]],'builderVersion'=>'5.9.0']).' /-->\n<!-- /wp:divi/column -->\n<!-- /wp:divi/row -->\n<!-- /wp:divi/section -->\n<!-- /wp:divi/placeholder -->'];
 }
-
 function vogue_divi5_run_import() {
     if (!current_user_can('manage_options')) wp_die('Permission denied.');
     check_admin_referer('vogue_divi5_import');
-    if (!defined('ET_BUILDER_VERSION') && !function_exists('et_theme_builder_get_theme_builder_post_id')) {
-        wp_die('Divi 5 must be installed and active before importing the Vogue site.');
-    }
+    if (!defined('ET_BUILDER_VERSION') && !function_exists('et_theme_builder_get_theme_builder_post_id')) wp_die('Divi 5 must be installed and active before importing the Vogue site.');
     $pages = [
-        ['services','Services','Beauty, edited to you.'],['hair','Hair','Cut. Colour. Character.'],['makeup','Makeup','Makeup with a point of view.'],['mens','Men\'s Grooming','Sharp, considered grooming.'],['nails','Nails','Small details. Big finish.'],['bridal','Bridal','Your day. Your look.'],['academy','Academy','Learn. Create. Lead.'],['about','The Vogue House','Beauty, made local.'],['booking','Book Your Visit','Make time for you.']
+        ['','Vogue Salon & Academy','Beauty, with attitude.'],['services','Services','Beauty, edited to you.'],['hair','Hair','Cut. Colour. Character.'],['makeup','Makeup','Makeup with a point of view.'],['mens','Men\'s Grooming','Sharp, considered grooming.'],['nails','Nails','Small details. Big finish.'],['bridal','Bridal','Your day. Your look.'],['academy','Academy','Learn. Create. Lead.'],['about','The Vogue House','Beauty, made local.'],['booking','Book Your Visit','Make time for you.']
     ];
-    $created=[];
+    $ids=[];
     foreach($pages as $p){
-        $existing=get_page_by_path($p[0]);
-        $args=['post_title'=>$p[1],'post_name'=>$p[0],'post_status'=>'publish','post_type'=>'page','post_content'=>vogue_divi5_markup($p[0],$p[1],$p[2])];
+        $existing=$p[0] ? get_page_by_path($p[0]) : get_page_by_title($p[1],OBJECT, 'page');
+        $args=['post_title'=>$p[1],'post_name'=>$p[0] ?: 'home','post_status'=>'publish','post_type'=>'page','post_content'=>vogue_divi5_markup($p[0] ?: 'home',$p[1],$p[2])];
         $id=$existing ? wp_update_post(array_merge($args,['ID'=>$existing->ID]),true) : wp_insert_post($args,true);
-        if(!is_wp_error($id)) $created[]=$id;
+        if(!is_wp_error($id)) $ids[$p[0] ?: 'home']=$id;
     }
-    $home=get_page_by_path('');
-    $home_id=get_page_by_path('home');
-    if($home_id) update_option('show_on_front','page');
-    $header_id=$footer_id=0;
+    if(!empty($ids['home'])) { update_option('show_on_front','page'); update_option('page_on_front',$ids['home']); }
     if(function_exists('et_theme_builder_insert_layout')){
-        $h=et_theme_builder_insert_layout(vogue_divi5_header_markup());
-        $f=et_theme_builder_insert_layout(vogue_divi5_footer_markup());
-        $header_id=is_wp_error($h)?0:$h; $footer_id=is_wp_error($f)?0:$f;
+        $header=et_theme_builder_insert_layout(vogue_divi5_header_markup());
+        $footer=et_theme_builder_insert_layout(vogue_divi5_footer_markup());
+        if(!is_wp_error($header) && !is_wp_error($footer) && function_exists('et_theme_builder_get_theme_builder_post_id') && function_exists('et_theme_builder_store_template')){
+            $tb=et_theme_builder_get_theme_builder_post_id(true,true);
+            et_theme_builder_store_template($tb,['id'=>0,'title'=>'Vogue Global Website','default'=>'1','enabled'=>'1','layouts'=>['header'=>['id'=>$header,'enabled'=>true],'body'=>['id'=>0,'enabled'=>false],'footer'=>['id'=>$footer,'enabled'=>true]],'use_on'=>[],'exclude_from'=>[]],true);
+            if(function_exists('et_theme_builder_clear_wp_cache')) et_theme_builder_clear_wp_cache('all');
+        }
     }
     update_option('vogue_divi5_imported',current_time('mysql'));
-    wp_safe_redirect(admin_url('admin.php?page=vogue-divi5-migrator&imported=1&pages='.count($created).'&header='.intval($header_id).'&footer='.intval($footer_id)); exit;
+    wp_safe_redirect(admin_url('admin.php?page=vogue-divi5-migrator&imported=1')); exit;
 }
 add_action('admin_post_vogue_divi5_import','vogue_divi5_run_import');
-
-function vogue_divi5_admin_page(){
-    if(!current_user_can('manage_options')) return;
-    echo '<div class="wrap"><h1>Vogue Salon — Divi 5</h1><p>This importer creates the Vogue pages using Divi 5 block markup and, when the Divi Theme Builder API is available, creates the global header/footer layouts.</p><p><strong>Existing pages with the same slugs are updated.</strong> The importer does not delete unrelated WordPress content.</p><form method="post" action="'.esc_url(admin_url('admin-post.php')).'"><input type="hidden" name="action" value="vogue_divi5_import">'.wp_nonce_field('vogue_divi5_import','_wpnonce',true,false).'<p><button class="button button-primary button-hero">Import Vogue Divi 5 Site</button></p></form></div>';
-}
+function vogue_divi5_admin_page(){if(!current_user_can('manage_options'))return;echo '<div class="wrap"><h1>Vogue Salon — Divi 5</h1><p>Creates the Vogue homepage and subpages as Divi 5 block layouts, sets the homepage, and creates a global Theme Builder header/footer when the Divi 5 APIs are available.</p><p><strong>Existing pages with the same slugs/titles are updated.</strong> Unrelated WordPress content is not deleted.</p><form method="post" action="'.esc_url(admin_url('admin-post.php')).'"><input type="hidden" name="action" value="vogue_divi5_import">'.wp_nonce_field('vogue_divi5_import','_wpnonce',true,false).'<p><button class="button button-primary button-hero">Import Vogue Divi 5 Site</button></p></form></div>';}
 add_action('admin_menu',function(){add_management_page('Vogue Divi 5','Vogue Divi 5','manage_options','vogue-divi5-migrator','vogue_divi5_admin_page');});
