@@ -10,7 +10,7 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 DirectoryIndex index.html
 
 # Keep common sensitive / project files out of public responses
-<FilesMatch "^(\.git|\.env|composer\.(json|lock)|package(-lock)?\.json|README\.md)$">
+<FilesMatch "^(\\.git|\\.env|composer\\.(json|lock)|package(-lock)?\\.json|README\\.md)$">
     Require all denied
 </FilesMatch>
 
@@ -33,11 +33,11 @@ DirectoryIndex index.html
     ExpiresByType application/javascript "access plus 1 month"
 </IfModule>
 
-# Inject the shared editorial system into the legacy subpage templates.
-# The selectors are scoped to .site-nav/.page-hero so the redesigned homepage is untouched.
+# Inject the shared editorial system into legacy subpage templates.
+# Supports Apache installations where mod_substitute is available.
 <IfModule mod_substitute.c>
     AddOutputFilterByType SUBSTITUTE text/html
-    Substitute "s#</head>#<link rel=\"stylesheet\" href=\"/assets/subpages.css?v=1\"><script defer src=\"/assets/subpages.js?v=1\"></script></head>#i"
+    Substitute "s#</head>#<link rel=\"stylesheet\" href=\"/assets/subpages.css?v=2\"><script defer src=\"/assets/subpages.js?v=2\"></script></head>#i"
 </IfModule>
 
 # Basic security headers
