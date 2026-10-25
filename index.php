@@ -45,8 +45,8 @@
 .instagram-feed{display:grid;grid-template-columns:1.18fr 1fr 1fr;grid-template-rows:clamp(190px,22vw,290px) clamp(190px,22vw,290px);gap:14px}
 .instagram-tile{position:relative;display:block;overflow:hidden;min-width:0;min-height:0;border-radius:25px;background:var(--surface-2);isolation:isolate}
 .instagram-tile-feature{grid-row:span 2}
-.instagram-tile img{width:100%;height:100%;object-fit:cover;transition:transform .75s cubic-bezier(.2,.7,.2,1),filter .5s;filter:saturate(.87)}
-.instagram-tile:hover img{transform:scale(1.07);filter:saturate(1.08)}
+.instagram-tile img,.instagram-tile video{width:100%;height:100%;object-fit:cover;transition:transform .75s cubic-bezier(.2,.7,.2,1),filter .5s;filter:saturate(.87)}
+.instagram-tile:hover img,.instagram-tile:hover video{transform:scale(1.04);filter:saturate(1.08)}
 .instagram-tile:after{content:"";position:absolute;inset:28% 0 0;background:linear-gradient(transparent,rgba(20,10,22,.78));z-index:0;opacity:.92;transition:opacity .25s}
 .instagram-tile:hover:after{opacity:1}
 .instagram-tile-overlay{position:absolute;z-index:1;left:20px;right:18px;bottom:20px;color:#fff;display:grid;gap:8px;transform:translateY(7px);transition:transform .3s}
@@ -162,7 +162,7 @@
           <a class="instagram-tile" href="https://www.instagram.com/voguesalon_tarntaran/" target="_blank" rel="noopener noreferrer"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=650&amp;q=85" alt="Skincare inspiration" loading="lazy"><span class="instagram-tile-overlay"><small>SELF-CARE</small><strong>Make time for you</strong><b>Explore ↗</b></span><span class="instagram-type" aria-hidden="true">◎</span></a>
         </div>
         <div class="instagram-bottom"><span><i></i> <strong>Vogue Salon &amp; Academy</strong> · Tarn Taran, Punjab</span><a href="/pages/gallery.php">Explore the full gallery ↗</a></div>
-        <p class="instagram-disclaimer">Editorial images are temporary design placeholders, not Vogue’s actual Instagram posts. Add public post or Reel links to activate the official Instagram embeds in this section.</p>
+        <p class="instagram-disclaimer">Photos and videos shown here are served from Vogue’s website repository. Use the controls on a video to pause or play it; open the Instagram link to visit the original post.</p>
       </div>
     </section>
     <section class="visit" id="visit">
