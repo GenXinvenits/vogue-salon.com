@@ -7,6 +7,7 @@
   const configuredPosts = [
     'https://www.instagram.com/reel/DSsELI4kjQ-/',
     'https://www.instagram.com/p/DeznCZvkrGn/',
+    'https://www.instagram.com/reel/DQ1lxajko-j/',
     'https://www.instagram.com/reel/Dd6eHGaoyIK/',
     'https://www.instagram.com/reel/DdjMAiUoppC/',
     'https://www.instagram.com/p/DbIXj_QGf5C/',
