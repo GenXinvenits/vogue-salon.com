@@ -33,10 +33,10 @@
   <header class="topbar">
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="Vogue Salon and Academy home"><span class="brand-mark">V.</span><span class="brand-name">VOGUE<small>Salon &amp; Academy</small></span></a>
-      <nav class="nav-links" id="navLinks" aria-label="Main navigation"><a href="#services">Services</a><a href="#academy">Academy</a><a href="#gallery">Our work</a><a href="#visit">Find us</a></nav>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation"><a href="/pages/about.php">About</a><a href="#services">Services</a><a href="/pages/academy.php">Academy</a><a href="/pages/gallery.php">Gallery</a><a href="/pages/contact.php">Contact</a></nav>
       <div class="nav-actions">
         <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to dark theme" title="Toggle dark and light theme"><span id="themeIcon" aria-hidden="true">☾</span></button>
-        <a class="btn btn-primary nav-book" href="https://wa.me/917837344000?text=Hi%20Vogue%20Salon%20%26%20Academy%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">Book a visit ↗</a>
+        <a class="btn btn-primary nav-book" href="/pages/booking.php">Book a visit ↗</a>
         <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
       </div>
     </div>
@@ -62,7 +62,7 @@
     <section class="intro">
       <div class="wrap intro-grid">
         <div class="reveal"><span class="eyebrow">Vogue / Experience</span><h2 class="display intro-title">Where beauty becomes <span>personal.</span></h2></div>
-        <div class="intro-text reveal"><p>Trends inspire us. Your individuality leads the way.</p><p class="muted">Whether you're refreshing your everyday style, preparing for a special celebration or beginning your beauty career, the best results start with listening. Explore the services, find the look that feels like you, and let's make it happen.</p><a class="btn btn-outline" href="#visit">Come say hello <span>↗</span></a></div>
+        <div class="intro-text reveal"><p>Trends inspire us. Your individuality leads the way.</p><p class="muted">Whether you're refreshing your everyday style, preparing for a special celebration or beginning your beauty career, the best results start with listening. Explore the services, find the look that feels like you, and let's make it happen.</p><a class="btn btn-outline" href="/pages/about.php">Get to know Vogue <span>↗</span></a></div>
       </div>
     </section>
     <section class="services" id="services">
@@ -87,12 +87,12 @@
     <section class="academy" id="academy">
       <div class="wrap academy-grid">
         <div class="academy-visual reveal"><div class="academy-photo"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85" alt="Creative fashion and beauty artistry" loading="lazy"></div><div class="academy-label"><strong>Learn the craft.</strong><p>Build your skills, develop your eye and take your next step in beauty.</p></div></div>
-        <div class="academy-copy reveal"><span class="eyebrow">Vogue Academy</span><h2 class="display">Learn the language of <span>beauty.</span></h2><p>Passion is a beginning. Practice turns it into a craft. Ask us about learning opportunities in makeup, hair and nails, and find out which path suits your goals.</p><ul class="academy-points"><li><span class="check">✓</span><span>Explore professional beauty skills</span></li><li><span class="check">✓</span><span>Build technique and creative confidence</span></li><li><span class="check">✓</span><span>Discuss courses and learning options with the team</span></li></ul><a class="btn btn-primary" href="https://wa.me/917837344000?text=Hi%20Vogue%20Academy%2C%20please%20share%20your%20course%20details." target="_blank" rel="noopener">Ask about the academy ↗</a></div>
+        <div class="academy-copy reveal"><span class="eyebrow">Vogue Academy</span><h2 class="display">Learn the language of <span>beauty.</span></h2><p>Passion is a beginning. Practice turns it into a craft. Ask us about learning opportunities in makeup, hair and nails, and find out which path suits your goals.</p><ul class="academy-points"><li><span class="check">✓</span><span>Explore professional beauty skills</span></li><li><span class="check">✓</span><span>Build technique and creative confidence</span></li><li><span class="check">✓</span><span>Discuss courses and learning options with the team</span></li></ul><a class="btn btn-primary" href="/pages/academy.php">Explore the academy ↗</a></div>
       </div>
     </section>
     <section class="gallery" id="gallery">
       <div class="wrap">
-        <div class="gallery-head"><div class="section-head reveal"><span class="eyebrow">The inspiration board</span><h2 class="display">Looks worth<br>saving.</h2><p>A little inspiration for your next visit. Explore Vogue's own posts and reels for salon updates, beauty looks and more.</p></div><a class="btn btn-tonal" href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener">Follow on Instagram ↗</a></div>
+        <div class="gallery-head"><div class="section-head reveal"><span class="eyebrow">The inspiration board</span><h2 class="display">Looks worth<br>saving.</h2><p>A little inspiration for your next visit. Explore Vogue's own posts and reels for salon updates, beauty looks and more.</p></div><a class="btn btn-tonal" href="/pages/gallery.php">Explore the gallery ↗</a> <a class="btn btn-outline" href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener">Instagram ↗</a></div>
         <div class="gallery-grid">
           <a class="gallery-item reveal" href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=85" alt="Makeup look inspiration" loading="lazy"><span class="gallery-caption"><small>Vogue / Inspiration</small>Beauty, in your own light</span></a>
           <a class="gallery-item reveal" href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=85" alt="Hair styling inspiration" loading="lazy"><span class="gallery-caption"><small>Hair</small>The finishing touch</span></a>
@@ -111,13 +111,13 @@
             <div class="visit-detail"><span class="chip-icon">☎</span><div><strong>Call the salon</strong><span><a href="tel:+917837344000">+91 78373 44000</a></span></div></div>
             <div class="visit-detail"><span class="chip-icon">◷</span><div><strong>Appointments</strong><span>Message or call to confirm availability and timings.</span></div></div>
           </div>
-          <div class="hero-actions"><a class="btn btn-primary" href="https://wa.me/917837344000?text=Hi%20Vogue%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">WhatsApp us ↗</a><a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Vogue+Salon+%26+Academy+Golden+Avenue+Tarn+Taran+Punjab" target="_blank" rel="noopener">Get directions ↗</a></div>
+          <div class="hero-actions"><a class="btn btn-primary" href="/pages/booking.php">Book an appointment ↗</a><a class="btn btn-outline" href="/pages/contact.php">Contact &amp; directions ↗</a></div>
         </div>
         <div class="visit-map"><img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1000&q=85" alt="Bright, contemporary salon interior" loading="lazy"><span class="map-pin" aria-hidden="true">V.</span><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Vogue+Salon+%26+Academy+Golden+Avenue+Tarn+Taran+Punjab" target="_blank" rel="noopener"><span>Vogue Salon &amp; Academy<small>Golden Avenue · Tarn Taran</small></span><span>↗</span></a></div>
       </div>
     </section>
   </main>
-  <footer class="footer"><div class="wrap"><div class="footer-top"><div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark">V.</span><span class="brand-name">VOGUE<small>Salon &amp; Academy</small></span></a><p>Beauty with attitude. Find your look, discover your craft, and make the experience your own.</p></div><div class="footer-links"><div class="footer-col"><strong>Explore</strong><a href="#services">Services</a><a href="#academy">Academy</a><a href="#gallery">Our work</a></div><div class="footer-col"><strong>Connect</strong><a href="tel:+917837344000">Call us</a><a href="https://wa.me/917837344000" target="_blank" rel="noopener">WhatsApp</a><a class="social-link" href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener">Instagram ↗</a></div></div></div><div class="footer-bottom"><span>© <span id="yearNow"></span> Vogue Salon &amp; Academy</span><span>Made for self-expression, in Tarn Taran, Punjab.</span><a href="#top">Back to top ↑</a></div></div></footer>
+  <footer class="footer"><div class="wrap"><div class="footer-top"><div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark">V.</span><span class="brand-name">VOGUE<small>Salon &amp; Academy</small></span></a><p>Beauty with attitude. Find your look, discover your craft, and make the experience your own.</p></div><div class="footer-links"><div class="footer-col"><strong>Explore</strong><a href="/pages/about.php">About Vogue</a><a href="/pages/services.php">Services</a><a href="/pages/academy.php">Academy</a><a href="/pages/gallery.php">Gallery</a></div><div class="footer-col"><strong>Connect</strong><a href="/pages/booking.php">Book appointment</a><a href="/pages/contact.php">Contact &amp; directions</a><a href="tel:+917837344000">Call us</a><a class="social-link" href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener">Instagram ↗</a></div></div></div><div class="footer-bottom"><span>© <span id="yearNow"></span> Vogue Salon &amp; Academy</span><span>Made for self-expression, in Tarn Taran, Punjab.</span><a href="#top">Back to top ↑</a></div></div></footer>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script>
