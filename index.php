@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f3f8">
-  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon-light.svg" id="siteFavicon">
+  <link rel="icon" type="image/png" href="/assets/img/logo-black.png" id="siteFavicon">
   <meta name="description" content="Discover hair, bridal, skin, nail and beauty education experiences at Vogue Salon & Academy in Tarn Taran, Punjab.">
   <title>Vogue Salon &amp; Academy — Beauty, with attitude.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
