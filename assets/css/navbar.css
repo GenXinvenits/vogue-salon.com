@@ -137,3 +137,28 @@
     background:var(--surface);
   }
 }
+
+
+/* Caret marks the Services tab as an expandable mega-menu on touch screens. */
+.nav-menu-caret{display:none}
+@media(max-width:680px){
+  .nav-links .nav-service-menu>.services-nav-link .nav-menu-caret{
+    display:grid;
+    place-items:center;
+    flex:0 0 30px;
+    width:30px;
+    height:30px;
+    margin-left:auto;
+    border:1px solid var(--line);
+    border-radius:50%;
+    color:var(--primary);
+    font-size:1.15rem;
+    font-weight:700;
+    line-height:1;
+    transition:transform .18s ease,background-color .18s ease;
+  }
+  .nav-service-menu.is-open>.services-nav-link .nav-menu-caret{
+    transform:rotate(180deg);
+    background:var(--surface);
+  }
+}
