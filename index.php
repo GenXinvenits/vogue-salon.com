@@ -109,7 +109,7 @@
             <img class="hero-slide" src="/assets/img/insta/voguesalon_tarntaran-20261025-0003.jpg" alt="Vogue Salon styling inspiration" loading="lazy">
             <video class="hero-slide" src="/assets/vid/insta/voguesalon_tarntaran-20261025-0003.mp4" muted playsinline preload="metadata" aria-label="Vogue Salon video 3"></video>
             <div class="hero-image-caption"><span>The Vogue experience</span><p>Your look.<br>Your signature.</p></div>
-          </div></div>
+          </div>
           <div class="float-chip chip-top"><span class="chip-icon">✧</span><span><strong>Made personal</strong><small>Beauty, shaped around you</small></span></div>
           <div class="float-chip chip-bottom"><span class="chip-icon">♡</span><span><strong>From salon to academy</strong><small>Discover. Learn. Create.</small></span></div>
         </div>
