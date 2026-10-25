@@ -79,12 +79,7 @@
 /* Full-width, image-led services mega menu inspired by OBA's structured dropdown */
 .nav-service-menu{position:static;display:flex;align-items:center;gap:0}
 .nav-service-menu>.services-nav-link{display:inline-flex;align-items:center;min-height:40px}
-.mega-toggle{position:relative;display:grid;place-items:center;flex:0 0 20px;width:20px;height:27px;margin:0 0 0 2px;padding:0;border:0;border-radius:0;background:transparent;color:var(--muted);font-size:1.2rem;line-height:1;cursor:pointer;transition:color .25s ease}
-.mega-caret{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .2s ease}
-.mega-caret-down{opacity:1}
-.nav-service-menu:hover .mega-caret-down,.nav-service-menu:focus-within .mega-caret-down,.nav-service-menu.is-open .mega-caret-down{opacity:0}
-.nav-service-menu:hover .mega-caret-up,.nav-service-menu:focus-within .mega-caret-up,.nav-service-menu.is-open .mega-caret-up{opacity:1}
-.nav-service-menu.is-open .mega-toggle{background:transparent;color:var(--primary)}
+
 .services-mega-menu{position:absolute;top:100%;left:0;right:0;z-index:50;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;width:100%;padding:22px max(24px,calc((100vw - var(--max))/2));border:1px solid var(--line);border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent);border-radius:0 0 28px 28px;background:color-mix(in srgb,var(--surface) 97%,transparent);box-shadow:0 24px 70px rgba(35,20,38,.2);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-10px);transition:opacity .22s,transform .22s,visibility .22s}
 .services-mega-menu:before{content:"EXPLORE VOGUE SERVICES";grid-column:1/-1;display:block;margin:0 2px 3px;color:var(--primary);font-size:.68rem;font-weight:800;letter-spacing:.18em}
 .nav-service-menu:hover .services-mega-menu,.nav-service-menu:focus-within .services-mega-menu,.nav-service-menu.is-open .services-mega-menu,.topbar:hover .services-mega-menu,.site-header:hover .services-mega-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
@@ -95,8 +90,8 @@
 .mega-service-card b{color:var(--ink);font:750 .9rem/1.25 var(--display);letter-spacing:-.035em}
 .mega-service-card i{position:absolute;right:15px;top:15px;display:grid;place-items:center;width:29px;height:29px;border-radius:50%;background:color-mix(in srgb,var(--surface) 90%,transparent);color:var(--primary);font-style:normal;font-size:1rem;box-shadow:0 2px 10px rgba(0,0,0,.08)}
 @media(max-width:1100px) and (min-width:701px){.services-mega-menu{grid-template-columns:repeat(3,minmax(0,1fr));padding-inline:24px}.mega-service-card img{height:120px}}
-@media(max-width:700px){.nav-service-menu{display:grid;grid-template-columns:1fr auto;gap:8px;width:100%}.nav-service-menu>.services-nav-link{min-height:0}.mega-toggle{width:32px;height:32px}.services-mega-menu{position:static;grid-column:1/-1;display:none;width:100%;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 0 0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;opacity:1;visibility:visible;pointer-events:auto;transform:none}.services-mega-menu:before{padding:0 2px 5px}.nav-service-menu.is-open .services-mega-menu{display:grid}.nav-service-menu:hover .services-mega-menu,.nav-service-menu:focus-within .services-mega-menu{opacity:1;visibility:visible;pointer-events:auto;transform:none}.mega-service-card{display:block;padding:7px;border-radius:15px}.mega-service-card img{width:100%;height:84px;margin-bottom:8px;border-radius:10px}.mega-service-card span{gap:4px;font-size:.57rem}.mega-service-card b{font-size:.76rem}.mega-service-card i{right:12px;top:12px;width:25px;height:25px}}
-@media(prefers-reduced-motion:reduce){.services-mega-menu,.mega-service-card,.mega-toggle{transition:none}}
+@media(max-width:700px){.nav-service-menu{display:grid;grid-template-columns:1fr auto;gap:8px;width:100%}.nav-service-menu>.services-nav-link{min-height:0}.services-mega-menu{position:static;grid-column:1/-1;display:none;width:100%;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 0 0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;opacity:1;visibility:visible;pointer-events:auto;transform:none}.services-mega-menu:before{padding:0 2px 5px}.nav-service-menu.is-open .services-mega-menu{display:grid}.nav-service-menu:hover .services-mega-menu,.nav-service-menu:focus-within .services-mega-menu{opacity:1;visibility:visible;pointer-events:auto;transform:none}.mega-service-card{display:block;padding:7px;border-radius:15px}.mega-service-card img{width:100%;height:84px;margin-bottom:8px;border-radius:10px}.mega-service-card span{gap:4px;font-size:.57rem}.mega-service-card b{font-size:.76rem}.mega-service-card i{right:12px;top:12px;width:25px;height:25px}}
+@media(prefers-reduced-motion:reduce){.services-mega-menu,.mega-service-card}
 
   </style>
 </head>
@@ -104,7 +99,7 @@
   <header class="topbar">
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="Vogue Salon and Academy home"><img class="brand-logo" src="/assets/img/logo.jpg" alt="" width="52" height="52"><span class="brand-name">VOGUE<small>Salon &amp; Academy</small></span></a>
-      <nav class="nav-links" id="navLinks" aria-label="Main navigation"><a href="/pages/about.php">About</a><div class="nav-service-menu"><a class="services-nav-link" href="/pages/services.php">Services</a><button class="mega-toggle" type="button" aria-label="Open services menu" aria-expanded="false"><span class="mega-caret mega-caret-down" aria-hidden="true">⌄</span><span class="mega-caret mega-caret-up" aria-hidden="true">⌃</span></button><div class="services-mega-menu" aria-label="All salon services">
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation"><a href="/pages/about.php">About</a><div class="nav-service-menu"><a class="services-nav-link" href="/pages/services.php">Services</a><div class="services-mega-menu" aria-label="All salon services">
           
           <a class="mega-service-card" href="/pages/services.php#hair"><img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="" loading="lazy"><span>01 <b>Hair Studio</b></span><i aria-hidden="true">↗</i></a>
           <a class="mega-service-card" href="/pages/services.php#bridal"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="" loading="lazy"><span>02 <b>Bridal Studio</b></span><i aria-hidden="true">↗</i></a>
@@ -245,19 +240,13 @@
       const serviceMenu = document.querySelector('.nav-service-menu');
       const serviceToggle = document.querySelector('.mega-toggle');
       if (serviceMenu && serviceToggle) {
-        serviceToggle.addEventListener('click', event => {
-          event.preventDefault();
-          const open = serviceMenu.classList.toggle('is-open');
-          serviceToggle.setAttribute('aria-expanded', String(open));
-          serviceToggle.setAttribute('aria-label', open ? 'Close services menu' : 'Open services menu');
-        });
         document.addEventListener('click', event => {
-          if (!serviceMenu.contains(event.target)) { serviceMenu.classList.remove('is-open'); serviceToggle.setAttribute('aria-expanded', 'false'); serviceToggle.setAttribute('aria-label', 'Open services menu'); }
+          if (!serviceMenu.contains(event.target)) serviceMenu.classList.remove('is-open');
         });
         document.addEventListener('keydown', event => {
-          if (event.key === 'Escape') { serviceMenu.classList.remove('is-open'); serviceToggle.setAttribute('aria-expanded', 'false'); serviceToggle.setAttribute('aria-label', 'Open services menu'); serviceToggle.focus(); }
+          if (event.key === 'Escape') serviceMenu.classList.remove('is-open');
         });
-        serviceMenu.querySelectorAll('.mega-service-card').forEach(link => link.addEventListener('click', () => { serviceMenu.classList.remove('is-open'); serviceToggle.setAttribute('aria-expanded', 'false'); serviceToggle.setAttribute('aria-label', 'Open services menu'); }));
+        
       }
       menuButton.addEventListener('click', () => {
         const open = navLinks.classList.toggle('open');
