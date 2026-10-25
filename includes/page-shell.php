@@ -25,7 +25,7 @@ $pageContent = $pageContent ?? '';
 <body>
   <header class="site-header">
     <div class="site-wrap nav">
-      <a class="brand" href="/index.php" aria-label="Vogue Salon and Academy home"><span class="brand-mark">V.</span><span class="brand-name">VOGUE<small>Salon &amp; Academy</small></span></a>
+      <a class="brand" href="/index.php" aria-label="Vogue Salon and Academy home"><img class="brand-logo" src="/assets/img/logo.jpg" alt="" width="52" height="52"><span class="brand-name">VOGUE<small>Salon &amp; Academy</small></span></a>
       <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="/pages/about.php">About</a><a href="/pages/services.php">Services</a><a href="/pages/academy.php">Academy</a><a href="/pages/gallery.php">Gallery</a><a href="/pages/contact.php">Contact</a>
       </nav>
@@ -49,7 +49,7 @@ $pageContent = $pageContent ?? '';
     <div class="site-wrap page-content"><?= $pageContent ?></div>
   </main>
   <footer class="site-footer"><div class="site-wrap footer-top">
-    <div><a class="brand" href="/index.php"><span class="brand-mark">V.</span><span class="brand-name">VOGUE<small>Salon &amp; Academy</small></span></a><p class="footer-description">Beauty with attitude. Find your look, discover your craft, and make the experience your own.</p></div>
+    <div><a class="brand" href="/index.php"><img class="brand-logo" src="/assets/img/logo.jpg" alt="" width="52" height="52"><span class="brand-name">VOGUE<small>Salon &amp; Academy</small></span></a><p class="footer-description">Beauty with attitude. Find your look, discover your craft, and make the experience your own.</p></div>
     <div class="footer-links"><div><strong>Explore</strong><a href="/pages/about.php">About Vogue</a><a href="/pages/services.php">Services</a><a href="/pages/academy.php">Academy</a><a href="/pages/gallery.php">Gallery</a></div><div><strong>Get in touch</strong><a href="/pages/booking.php">Book an appointment</a><a href="/pages/contact.php">Contact &amp; directions</a><a href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div>
   </div><div class="site-wrap footer-bottom"><span>© <?= date('Y') ?> Vogue Salon &amp; Academy</span><a href="#top">Back to top ↑</a></div></footer>
   <script src="/assets/js/site.js" defer></script>
