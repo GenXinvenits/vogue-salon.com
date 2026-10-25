@@ -40,7 +40,7 @@
         </div>
       </div>
     </section>
-    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>Hair studio</span><b>✳</b><span>Bridal beauty</span><b>✳</b><span>Nail atelier</span><b>✳</b><span>Skin rituals</span><b>✳</b><span>Vogue academy</span><b>✳</b><span>Hair studio</span><b>✳</b><span>Bridal beauty</span><b>✳</b><span>Nail atelier</span><b>✳</b><span>Skin rituals</span><b>✳</b><span>Vogue academy</span><b>✳</b></div></div>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track"><div class="ticker-group"><span>Hair studio</span><b>✳</b><span>Bridal beauty</span><b>✳</b><span>Nail atelier</span><b>✳</b><span>Skin rituals</span><b>✳</b><span>Vogue academy</span><b>✳</b></div><div class="ticker-group" aria-hidden="true"><span>Hair studio</span><b>✳</b><span>Bridal beauty</span><b>✳</b><span>Nail atelier</span><b>✳</b><span>Skin rituals</span><b>✳</b><span>Vogue academy</span><b>✳</b></div></div></div>
     <section class="intro">
       <div class="wrap intro-grid">
         <div class="reveal"><span class="eyebrow">Vogue / Experience</span><h2 class="display intro-title">Where beauty becomes <span>personal.</span></h2></div>
