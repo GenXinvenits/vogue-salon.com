@@ -198,5 +198,6 @@
       window.addEventListener('load', () => ScrollTrigger.refresh());
     })();
   </script>
+  <script src="/assets/js/instagram-feed.js" defer></script>
 </body>
 </html>
