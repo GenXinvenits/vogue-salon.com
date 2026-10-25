@@ -238,8 +238,7 @@
       } catch (_) {}
       themeButton.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
       const serviceMenu = document.querySelector('.nav-service-menu');
-      const serviceToggle = document.querySelector('.mega-toggle');
-      if (serviceMenu && serviceToggle) {
+      if (serviceMenu) {
         document.addEventListener('click', event => {
           if (!serviceMenu.contains(event.target)) serviceMenu.classList.remove('is-open');
         });
