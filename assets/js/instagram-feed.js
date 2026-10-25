@@ -18,9 +18,11 @@
     { type: 'image', src: '/assets/img/insta/voguesalon_tarntaran-20261025-0002.jpg', href: profile, label: 'FROM INSTAGRAM', title: 'Beauty details 02' }
   ];
 
+  const renderFeed = remoteMedia => {
   document.querySelectorAll('[data-instagram-feed]').forEach(feed => {
     const isGallery = feed.classList.contains('instagram-feed-page');
-    const items = isGallery ? media : media.slice(0, 6);
+    const sourceMedia = Array.isArray(remoteMedia) && remoteMedia.length ? remoteMedia : media;
+    const items = isGallery ? sourceMedia : sourceMedia.slice(0, 6);
     feed.replaceChildren();
     feed.classList.add('instagram-feed-local');
 
@@ -104,4 +106,11 @@
       });
     }
   });
+  };
+
+  // Prefer the server-side Meta API feed; retain the bundled gallery if not connected.
+  fetch('/api/instagram-feed.php', { headers: { Accept: 'application/json' } })
+    .then(response => response.ok ? response.json() : Promise.reject(new Error('Instagram feed unavailable')))
+    .then(payload => renderFeed(payload.configured && Array.isArray(payload.items) && payload.items.length ? payload.items : media))
+    .catch(() => renderFeed(media));
 })();
