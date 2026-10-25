@@ -112,3 +112,28 @@
     box-shadow:0 6px 16px color-mix(in srgb,var(--primary) 20%,transparent);
   }
 }
+
+
+/* Arrow indicators are shown only on standard mobile menu tabs, not Services mega-menu. */
+.nav-tab-arrow{display:none}
+@media(max-width:680px){
+  .nav-links>a:not(.nav-book-mobile) .nav-tab-arrow{
+    display:grid;
+    place-items:center;
+    flex:0 0 30px;
+    width:30px;
+    height:30px;
+    margin-left:auto;
+    border:1px solid var(--line);
+    border-radius:50%;
+    color:var(--primary);
+    font-size:.95rem;
+    font-style:normal;
+    line-height:1;
+    transition:transform .15s ease,background-color .15s ease;
+  }
+  .nav-links>a:not(.nav-book-mobile):active .nav-tab-arrow{
+    transform:translate(2px,-2px);
+    background:var(--surface);
+  }
+}
