@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    @font-face{font-family:'Rockdale';src:url('/assets/font/rockdale/Rockdale-FREE.otf') format('opentype');font-style:normal;font-weight:600;font-display:swap}
+    @font-face{font-family:'Rockdale';src:url('/assets/font/rockdale/Rockdale.otf') format('opentype');font-style:normal;font-weight:600;font-display:swap}
 
     :root{color-scheme:light;--bg:#f8f5f8;--surface:#fff;--surface-2:#f0eaf2;--ink:#241c29;--muted:#706673;--primary:#6b426d;--on-primary:#fff8ff;--secondary:#745765;--accent:#bd785f;--line:rgba(57,39,60,.14);--nav:rgba(248,245,248,.78);--shadow:0 18px 55px rgba(61,39,66,.11);--radius:28px;--max:1240px;--sans:'DM Sans',sans-serif;--display:'Manrope',sans-serif}
     html[data-theme=dark]{color-scheme:dark;--bg:#171319;--surface:#231e25;--surface-2:#302832;--ink:#f7eff8;--muted:#c2b5c4;--primary:#e2b9e5;--on-primary:#321b35;--secondary:#d7b8c7;--accent:#f0ae91;--line:rgba(255,239,255,.14);--nav:rgba(23,19,25,.8);--shadow:0 18px 55px rgba(0,0,0,.28)}
