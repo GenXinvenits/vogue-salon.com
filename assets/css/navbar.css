@@ -55,3 +55,27 @@
 @media(prefers-reduced-motion:reduce){
   .services-mega-menu,.mega-service-card{transition:none}
 }
+
+
+/* Larger, easy-to-hit navigation tabs inside the mobile hamburger panel. */
+@media(max-width:680px){
+  .nav-links{gap:5px;padding:12px}
+  .nav-links>a:not(.nav-book-mobile),.nav-links .services-nav-link{
+    min-height:52px;
+    padding:14px 16px;
+    border-radius:14px;
+    font-size:1rem;
+    font-weight:700;
+    line-height:1.35;
+  }
+  .nav-links>a:not(.nav-book-mobile),.nav-service-menu>.services-nav-link{
+    border:1px solid transparent;
+    transition:background-color .15s ease,border-color .15s ease;
+  }
+  .nav-links>a:not(.nav-book-mobile):hover,.nav-links>a:not(.nav-book-mobile):active,
+  .nav-service-menu>.services-nav-link:hover,.nav-service-menu>.services-nav-link:active{
+    background:var(--surface-2);
+    border-color:var(--line);
+  }
+  .nav-links .nav-book-mobile{min-height:52px}
+}
