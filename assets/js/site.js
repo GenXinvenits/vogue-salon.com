@@ -37,7 +37,7 @@
       closeTimer = window.setTimeout(() => {
         serviceMenu.classList.remove('is-open');
         closeTimer = undefined;
-      }, 1000);
+      }, 800);
     };
 
     serviceMenu.addEventListener('pointerenter', openMenu);
