@@ -6,6 +6,8 @@
   const links = document.getElementById('navLinks');
   const applyTheme = (theme) => {
     root.dataset.theme = theme;
+    const favicon = document.getElementById('siteFavicon');
+    if (favicon) favicon.href = theme === 'dark' ? '/assets/img/favicon-dark.svg' : '/assets/img/favicon-light.svg';
     if (icon) icon.textContent = theme === 'dark' ? '☀' : '☾';
     if (toggle) toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     const meta = document.querySelector('meta[name="theme-color"]');
