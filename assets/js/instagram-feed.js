@@ -7,6 +7,9 @@
    * cannot be used as a live feed. Empty configuration deliberately preserves the labelled
    * editorial placeholders instead of pretending they are real Instagram posts.
    */
+  const configuredPosts = [
+    // Paste public post/Reel permalinks here, one per line, e.g. 'https://www.instagram.com/p/POSTCODE/',
+  ];
   const feedNodes = document.querySelectorAll('[data-instagram-feed]');
   if (!feedNodes.length) return;
   const validUrl = value => {
@@ -19,6 +22,7 @@
   feedNodes.forEach(feed => {
     let posts = [];
     try { posts = JSON.parse(feed.dataset.posts || '[]'); } catch (_) { posts = []; }
+    if (!posts.length) posts = configuredPosts;
     posts = [...new Set(posts.filter(validUrl))].slice(0, 6);
     if (!posts.length) return;
     feed.replaceChildren();
