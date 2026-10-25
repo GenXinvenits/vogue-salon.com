@@ -53,6 +53,7 @@ $pageContent = $pageContent ?? '';
     <div class="footer-links"><div><strong>Explore</strong><a href="/pages/about.php">About Vogue</a><a href="/pages/services.php">Services</a><a href="/pages/academy.php">Academy</a><a href="/pages/gallery.php">Gallery</a></div><div><strong>Get in touch</strong><a href="/pages/booking.php">Book an appointment</a><a href="/pages/contact.php">Contact &amp; directions</a><a href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div>
   </div><div class="site-wrap footer-bottom"><span>© <?= date('Y') ?> Vogue Salon &amp; Academy</span><a href="#top">Back to top ↑</a></div></footer>
   <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/instagram-feed.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
   <script src="/assets/js/page-motion.js" defer></script>
