@@ -118,7 +118,10 @@ foreach ($payload['data'] as $post) {
     $poster = (string) ($post['thumbnail_url'] ?? $src);
     $caption = trim((string) ($post['caption'] ?? ''));
     $title = $caption !== '' ? preg_replace('/\\s+/u', ' ', $caption) : 'Vogue Salon moment';
-    if (is_string($title) && mb_strlen($title, 'UTF-8') > 100) $title = mb_substr($title, 0, 97, 'UTF-8') . '…';
+    if (is_string($title)) {
+        $length = function_exists('mb_strlen') ? mb_strlen($title, 'UTF-8') : strlen($title);
+        if ($length > 100) $title = (function_exists('mb_substr') ? mb_substr($title, 0, 97, 'UTF-8') : substr($title, 0, 97)) . '…';
+    }
     $items[] = [
         'type' => $type === 'VIDEO' ? 'video' : 'image',
         'src' => $src,
