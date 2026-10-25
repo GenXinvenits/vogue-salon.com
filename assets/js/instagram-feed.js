@@ -1,14 +1,15 @@
 (() => {
   /*
    * Vogue Instagram lookbook.
-   * Add public Instagram post/Reel permalinks to data-posts on each [data-instagram-feed],
-   * e.g. data-posts='["https://www.instagram.com/p/POSTCODE/","https://www.instagram.com/reel/REELCODE/"]'.
-   * Official Instagram embeds require individual public post/Reel URLs; a profile URL alone
-   * cannot be used as a live feed. Empty configuration deliberately preserves the labelled
-   * editorial placeholders instead of pretending they are real Instagram posts.
+   * These public post/Reel permalinks are rendered as official Instagram embeds.
+   * Order matters: the first item is the lead post in the homepage lookbook.
    */
   const configuredPosts = [
-    // Paste public post/Reel permalinks here, one per line, e.g. 'https://www.instagram.com/p/POSTCODE/',
+    'https://www.instagram.com/reel/DSsELI4kjQ-/',
+    'https://www.instagram.com/p/DeznCZvkrGn/',
+    'https://www.instagram.com/reel/Dd6eHGaoyIK/',
+    'https://www.instagram.com/reel/DdjMAiUoppC/',
+    'https://www.instagram.com/p/DbIXj_QGf5C/',
   ];
   const feedNodes = document.querySelectorAll('[data-instagram-feed]');
   if (!feedNodes.length) return;
