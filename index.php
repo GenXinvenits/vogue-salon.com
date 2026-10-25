@@ -33,7 +33,7 @@
   <header class="topbar">
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="Vogue Salon and Academy home"><span class="brand-mark">V.</span><span class="brand-name">VOGUE<small>Salon &amp; Academy</small></span></a>
-      <nav class="nav-links" id="navLinks" aria-label="Main navigation"><a href="/pages/about.php">About</a><a href="#services">Services</a><a href="/pages/academy.php">Academy</a><a href="/pages/gallery.php">Gallery</a><a href="/pages/contact.php">Contact</a></nav>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation"><a href="/pages/about.php">About</a><a href="/pages/services.php">Services</a><a href="/pages/academy.php">Academy</a><a href="/pages/gallery.php">Gallery</a><a href="/pages/contact.php">Contact</a></nav>
       <div class="nav-actions">
         <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to dark theme" title="Toggle dark and light theme"><span id="themeIcon" aria-hidden="true">☾</span></button>
         <a class="btn btn-primary nav-book" href="/pages/booking.php">Book a visit ↗</a>
@@ -75,6 +75,7 @@
           <article class="service-card tilt-card reveal"><div class="service-image"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=85" alt="Professional facial and skincare treatment" loading="lazy"></div><div class="service-info"><div class="service-topline"><span class="service-num">04 / SKIN</span><span class="service-arrow">↗</span></div><h3>Skin &amp; Beauty</h3><p>Make space for self-care with beauty and skin services selected around your needs.</p></div></article>
           <article class="service-card tilt-card reveal"><div class="service-image"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=85" alt="Makeup artistry close-up" loading="lazy"></div><div class="service-info"><div class="service-topline"><span class="service-num">05 / MAKEUP</span><span class="service-arrow">↗</span></div><h3>Makeup &amp; Occasion</h3><p>From understated polish to celebration-ready glamour, find the finish that feels right.</p></div></article>
           <article class="service-card tilt-card reveal"><div class="service-image"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=85" alt="Modern salon interior" loading="lazy"></div><div class="service-info"><div class="service-topline"><span class="service-num">06 / CONSULT</span><span class="service-arrow">↗</span></div><h3>Your Beauty Plan</h3><p>Not sure where to begin? Tell us what you have in mind and plan your visit with our team.</p></div></article>
+          <div style="margin-top:28px"><a class="btn btn-tonal" href="/pages/services.php">Explore all services ↗</a></div>
         </div>
       </div>
     </section>
