@@ -1,4 +1,4 @@
-/* Shared developer-credit ticker at the very bottom of every footer. */
+/* Seamless developer-credit ticker shared by the homepage and inner pages. */
 .footer-credit-ticker{
   position:relative;
   overflow:hidden;
@@ -6,25 +6,48 @@
   border-top:1px solid var(--line);
   background:var(--surface-2);
   color:var(--muted);
-  padding:12px 0;
+  padding:13px 0;
 }
 .footer-credit-track{
   display:flex;
   align-items:center;
-  gap:28px;
   width:max-content;
-  white-space:nowrap;
-  animation:footer-credit-marquee 30s linear infinite;
+  animation:footer-credit-marquee 34s linear infinite;
   will-change:transform;
 }
-.footer-credit-track>span{font-size:.72rem;letter-spacing:.06em}
-.footer-credit-track strong{color:var(--ink);font-weight:800}
-.footer-credit-track>span[aria-hidden=true]{color:var(--primary);font-size:.8rem}
+.footer-credit-group{
+  display:flex;
+  flex:0 0 auto;
+  align-items:center;
+  gap:28px;
+  padding-right:28px;
+  white-space:nowrap;
+}
+.footer-credit-group>span,
+.footer-credit-group>a{
+  font-size:.72rem;
+  letter-spacing:.055em;
+}
+.footer-credit-group>a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:var(--ink);
+  font-weight:800;
+  text-decoration:none;
+  transition:color .2s ease;
+}
+.footer-credit-group>a:hover,
+.footer-credit-group>a:focus-visible{color:var(--primary);text-decoration:underline;text-underline-offset:4px}
+.footer-credit-group>a span{font-size:.9rem}
+.footer-credit-separator{color:var(--primary);font-size:.8rem}
 .footer-credit-ticker:hover .footer-credit-track{animation-play-state:paused}
 @keyframes footer-credit-marquee{
   from{transform:translateX(0)}
   to{transform:translateX(-50%)}
 }
 @media(prefers-reduced-motion:reduce){
-  .footer-credit-track{animation:none;justify-content:center;width:100%;flex-wrap:wrap;white-space:normal;padding:0 16px}
+  .footer-credit-track{animation:none;width:100%;justify-content:center}
+  .footer-credit-group{display:none;flex-wrap:wrap;justify-content:center;white-space:normal;padding:0 16px}
+  .footer-credit-group:first-child{display:flex}
 }
