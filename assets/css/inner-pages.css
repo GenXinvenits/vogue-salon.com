@@ -160,7 +160,7 @@ html[data-theme=dark]{color-scheme:dark;--bg:#171319;--surface:#231e25;--surface
 .gallery-open-post{position:absolute;z-index:4;top:13px;right:13px;display:grid;place-items:center;width:39px;height:39px;border:1px solid rgba(255,255,255,.5);border-radius:50%;background:rgba(25,17,27,.35);backdrop-filter:blur(12px);color:#fff;font-size:1.15rem;transition:background .2s,transform .2s}
 .gallery-open-post:hover{background:var(--primary);transform:translate(2px,-2px)}
 .gallery-media-grid .gallery-media-tile:has(video){grid-row:span 2;background:#090909}
-.gallery-media-grid video.instagram-media-visual{position:relative;z-index:1;object-fit:contain;object-position:center;background:#090909}
+.gallery-media-grid video.instagram-media-visual{position:relative;z-index:1;object-fit:cover;object-position:center;background:#090909}
 .gallery-media-grid .gallery-media-tile:has(video):after{bottom:46px}
 .gallery-media-grid .gallery-media-tile:has(video) .gallery-media-caption{bottom:61px}
 .gallery-endnote{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:34px;color:var(--muted);font-size:.84rem;text-align:center}
