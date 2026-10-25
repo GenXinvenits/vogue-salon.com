@@ -241,6 +241,10 @@
       const serviceMenu = document.querySelector('.nav-service-menu');
       const serviceToggle = document.querySelector('.mega-toggle');
       if (serviceMenu && serviceToggle) {
+        serviceMenu.addEventListener('pointerenter', () => { serviceToggle.textContent = '⌃'; });
+        serviceMenu.addEventListener('pointerleave', () => {
+          if (serviceToggle.getAttribute('aria-expanded') !== 'true') serviceToggle.textContent = '⌄';
+        });
         serviceToggle.addEventListener('click', event => {
           event.preventDefault();
           const open = serviceMenu.classList.toggle('is-open');
