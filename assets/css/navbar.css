@@ -158,7 +158,7 @@
     transition:transform .18s ease,background-color .18s ease;
   }
   .nav-service-menu.is-open>.services-nav-link .nav-menu-caret{
-    transform:rotate(180deg);
+    transform:rotate(45deg);
     background:var(--surface);
   }
 }
