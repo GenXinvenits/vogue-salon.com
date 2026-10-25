@@ -41,6 +41,12 @@
         visual.preload = index < 3 ? 'metadata' : 'none';
         visual.controls = true;
         visual.setAttribute('aria-label', item.title);
+        // Keep playback exclusive across all locally rendered Instagram feeds.
+        visual.addEventListener('play', () => {
+          document.querySelectorAll('[data-instagram-feed] video').forEach(otherVideo => {
+            if (otherVideo !== visual && !otherVideo.paused) otherVideo.pause();
+          });
+        });
       } else {
         visual = document.createElement('img');
         visual.src = item.src;
