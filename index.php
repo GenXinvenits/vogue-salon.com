@@ -91,17 +91,29 @@
         <div class="academy-copy reveal"><span class="eyebrow">Vogue Academy</span><h2 class="display">Learn the language of <span>beauty.</span></h2><p>Passion is a beginning. Practice turns it into a craft. Ask us about learning opportunities in makeup, hair and nails, and find out which path suits your goals.</p><ul class="academy-points"><li><span class="check">✓</span><span>Explore professional beauty skills</span></li><li><span class="check">✓</span><span>Build technique and creative confidence</span></li><li><span class="check">✓</span><span>Discuss courses and learning options with the team</span></li></ul><a class="btn btn-primary" href="/pages/academy.php">Explore the academy ↗</a></div>
       </div>
     </section>
-    <section class="gallery" id="gallery">
+    <section class="instagram-section" id="instagram">
       <div class="wrap">
-        <div class="gallery-head"><div class="section-head reveal"><span class="eyebrow">The inspiration board</span><h2 class="display">Looks worth<br>saving.</h2><p>A little inspiration for your next visit. Explore Vogue's own posts and reels for salon updates, beauty looks and more.</p></div><a class="btn btn-tonal" href="/pages/gallery.php">Explore the gallery ↗</a> <a class="btn btn-outline" href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener">Instagram ↗</a></div>
-        <div class="gallery-grid">
-          <a class="gallery-item reveal" href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=85" alt="Makeup look inspiration" loading="lazy"><span class="gallery-caption"><small>Vogue / Inspiration</small>Beauty, in your own light</span></a>
-          <a class="gallery-item reveal" href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=85" alt="Hair styling inspiration" loading="lazy"><span class="gallery-caption"><small>Hair</small>The finishing touch</span></a>
-          <a class="gallery-item reveal" href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=700&q=85" alt="Nail art inspiration" loading="lazy"><span class="gallery-caption"><small>Nails</small>Details matter</span></a>
-          <a class="gallery-item reveal" href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=85" alt="Wedding beauty inspiration" loading="lazy"><span class="gallery-caption"><small>Bridal</small>Your day, your way</span></a>
-          <a class="gallery-item reveal" href="https://www.instagram.com/voguesalon_tarntaran/?hl=en" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=700&q=85" alt="Skincare inspiration" loading="lazy"><span class="gallery-caption"><small>Self-care</small>Make time for you</span></a>
+        <div class="instagram-heading">
+          <div class="instagram-heading-copy">
+            <span class="eyebrow">A little more Vogue</span>
+            <h2 class="display">Your next look<br><em>starts here.</em></h2>
+            <p>Beauty moments, transformations and behind-the-scenes glimpses. Follow along with Vogue Salon &amp; Academy.</p>
+          </div>
+          <a class="instagram-follow" href="https://www.instagram.com/voguesalon_tarntaran/" target="_blank" rel="noopener noreferrer" aria-label="Follow Vogue Salon and Academy on Instagram">
+            <span class="instagram-mark" aria-hidden="true">◎</span>
+            <span><small>Follow us on Instagram</small><strong>@voguesalon_tarntaran</strong></span>
+            <span class="instagram-arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
-        <p class="gallery-note">Editorial imagery is used as a temporary visual stand-in here; the tiles link to Vogue's Instagram profile. Replace these with approved photos or individual public Instagram post/reel embeds for an authentic salon portfolio.</p>
+        <div class="instagram-feed" data-instagram-feed data-posts="[]">
+          <a class="instagram-tile instagram-tile-feature" href="https://www.instagram.com/voguesalon_tarntaran/" target="_blank" rel="noopener noreferrer"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Beauty editorial inspiration" loading="lazy"><span class="instagram-tile-overlay"><small>THE BEAUTY EDIT</small><strong>Find your signature look</strong><b>View on Instagram ↗</b></span><span class="instagram-type" aria-hidden="true">◎</span></a>
+          <a class="instagram-tile" href="https://www.instagram.com/voguesalon_tarntaran/" target="_blank" rel="noopener noreferrer"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&amp;fit=crop&amp;w=650&amp;q=85" alt="Hair styling inspiration" loading="lazy"><span class="instagram-tile-overlay"><small>HAIR</small><strong>The finishing touch</strong><b>Explore ↗</b></span><span class="instagram-type" aria-hidden="true">▣</span></a>
+          <a class="instagram-tile" href="https://www.instagram.com/voguesalon_tarntaran/" target="_blank" rel="noopener noreferrer"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&amp;fit=crop&amp;w=650&amp;q=85" alt="Nail art inspiration" loading="lazy"><span class="instagram-tile-overlay"><small>NAILS</small><strong>Details matter</strong><b>Explore ↗</b></span><span class="instagram-type" aria-hidden="true">◎</span></a>
+          <a class="instagram-tile" href="https://www.instagram.com/voguesalon_tarntaran/" target="_blank" rel="noopener noreferrer"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&amp;fit=crop&amp;w=650&amp;q=85" alt="Bridal beauty inspiration" loading="lazy"><span class="instagram-tile-overlay"><small>BRIDAL</small><strong>Your day, your way</strong><b>Explore ↗</b></span><span class="instagram-type" aria-hidden="true">▣</span></a>
+          <a class="instagram-tile" href="https://www.instagram.com/voguesalon_tarntaran/" target="_blank" rel="noopener noreferrer"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=650&amp;q=85" alt="Skincare inspiration" loading="lazy"><span class="instagram-tile-overlay"><small>SELF-CARE</small><strong>Make time for you</strong><b>Explore ↗</b></span><span class="instagram-type" aria-hidden="true">◎</span></a>
+        </div>
+        <div class="instagram-bottom"><span><i></i> <strong>Vogue Salon &amp; Academy</strong> · Tarn Taran, Punjab</span><a href="/pages/gallery.php">Explore the full gallery ↗</a></div>
+        <p class="instagram-disclaimer">Editorial images are temporary design placeholders, not Vogue’s actual Instagram posts. Add public post or Reel links to activate the official Instagram embeds in this section.</p>
       </div>
     </section>
     <section class="visit" id="visit">
