@@ -49,3 +49,9 @@ html[data-theme=dark]{color-scheme:dark;--bg:#171319;--surface:#231e25;--surface
 
 .instagram-feed-live{grid-template-rows:auto;grid-auto-rows:auto;align-items:start}.instagram-feed-live .instagram-embed-card{width:100%;max-width:540px;min-width:0;justify-self:center}.instagram-feed-live .instagram-media{width:100%!important;min-width:0!important}
 @media(max-width:600px){.instagram-feed-live{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;gap:18px}.instagram-feed-live .instagram-embed-card{max-width:540px}}
+
+
+/* Subpage hero orb motion: animate the existing orb-one element only. */
+.page-hero .hero-orb.orb-one{transform:translate3d(0,0,0) scale(.94);transform-origin:center;will-change:transform,opacity;animation:subpage-orb-float 7s ease-in-out infinite alternate}
+@keyframes subpage-orb-float{0%{transform:translate3d(0,0,0) scale(.94);opacity:.24}50%{transform:translate3d(-28px,24px,0) scale(1.07);opacity:.48}100%{transform:translate3d(18px,-22px,0) scale(1);opacity:.32}}
+@media(prefers-reduced-motion:reduce){.page-hero .hero-orb.orb-one{animation:none;transform:none;will-change:auto}}
