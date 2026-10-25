@@ -20,31 +20,13 @@
   if (toggle) toggle.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
 
   const serviceMenu = document.querySelector('.nav-service-menu');
-  const serviceToggle = document.querySelector('.mega-toggle');
-  if (serviceMenu && serviceToggle) {
-    serviceToggle.addEventListener('click', event => {
-      event.preventDefault();
-      const open = serviceMenu.classList.toggle('is-open');
-      serviceToggle.setAttribute('aria-expanded', String(open));
-      serviceToggle.setAttribute('aria-label', open ? 'Close services menu' : 'Open services menu');
-    });
+  if (serviceMenu) {
     document.addEventListener('click', event => {
-      if (!serviceMenu.contains(event.target)) {
-        serviceMenu.classList.remove('is-open');
-        serviceToggle.setAttribute('aria-expanded', 'false');
-      }
+      if (!serviceMenu.contains(event.target)) serviceMenu.classList.remove('is-open');
     });
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') {
-        serviceMenu.classList.remove('is-open');
-        serviceToggle.setAttribute('aria-expanded', 'false');
-        serviceToggle.focus();
-      }
+      if (event.key === 'Escape') serviceMenu.classList.remove('is-open');
     });
-    serviceMenu.querySelectorAll('.mega-service-card').forEach(link => link.addEventListener('click', () => {
-      serviceMenu.classList.remove('is-open');
-      serviceToggle.setAttribute('aria-expanded', 'false');
-    }));
   }
 
   if (menu && links) {
