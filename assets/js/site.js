@@ -21,11 +21,43 @@
 
   const serviceMenu = document.querySelector('.nav-service-menu');
   if (serviceMenu) {
+    let closeTimer;
+    const cancelClose = () => {
+      if (closeTimer) {
+        window.clearTimeout(closeTimer);
+        closeTimer = undefined;
+      }
+    };
+    const openMenu = () => {
+      cancelClose();
+      serviceMenu.classList.add('is-open');
+    };
+    const scheduleClose = () => {
+      cancelClose();
+      closeTimer = window.setTimeout(() => {
+        serviceMenu.classList.remove('is-open');
+        closeTimer = undefined;
+      }, 1000);
+    };
+
+    serviceMenu.addEventListener('pointerenter', openMenu);
+    serviceMenu.addEventListener('pointerleave', scheduleClose);
+    serviceMenu.addEventListener('focusin', openMenu);
+    serviceMenu.addEventListener('focusout', event => {
+      if (!serviceMenu.contains(event.relatedTarget)) scheduleClose();
+    });
+
     document.addEventListener('click', event => {
-      if (!serviceMenu.contains(event.target)) serviceMenu.classList.remove('is-open');
+      if (!serviceMenu.contains(event.target)) {
+        cancelClose();
+        serviceMenu.classList.remove('is-open');
+      }
     });
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') serviceMenu.classList.remove('is-open');
+      if (event.key === 'Escape') {
+        cancelClose();
+        serviceMenu.classList.remove('is-open');
+      }
     });
   }
 
