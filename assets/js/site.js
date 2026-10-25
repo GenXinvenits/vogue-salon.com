@@ -4,6 +4,7 @@
   const icon = document.getElementById('themeIcon');
   const menu = document.getElementById('menuToggle');
   const links = document.getElementById('navLinks');
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
   const applyTheme = (theme) => {
     root.dataset.theme = theme;
     const favicon = document.getElementById('siteFavicon');
@@ -12,14 +13,20 @@
     if (toggle) toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.content = theme === 'dark' ? '#171319' : '#f8f5f8';
-    try { localStorage.setItem('vogue-theme', theme); } catch (_) {}
   };
-  try {
-    const saved = localStorage.getItem('vogue-theme');
-    if (saved === 'dark' || saved === 'light') applyTheme(saved);
-    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) applyTheme('dark');
-  } catch (_) {}
-  if (toggle) toggle.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
+
+  // Follow the device appearance by default and whenever its preference changes.
+  applyTheme(systemTheme.matches ? 'dark' : 'light');
+  if (typeof systemTheme.addEventListener === 'function') {
+    systemTheme.addEventListener('change', event => applyTheme(event.matches ? 'dark' : 'light'));
+  } else if (typeof systemTheme.addListener === 'function') {
+    systemTheme.addListener(event => applyTheme(event.matches ? 'dark' : 'light'));
+  }
+
+  // Keep the existing toggle available for a temporary manual switch.
+  if (toggle) toggle.addEventListener('click', () => {
+    applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
+  });
 
   const serviceMenu = document.querySelector('.nav-service-menu');
   if (serviceMenu) {
