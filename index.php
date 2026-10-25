@@ -79,8 +79,8 @@
 /* Full-width, image-led services mega menu inspired by OBA's structured dropdown */
 .nav-service-menu{position:static;display:flex;align-items:center;gap:2px}
 .nav-service-menu>.services-nav-link{display:inline-flex;align-items:center;min-height:40px}
-.mega-toggle{display:grid;place-items:center;width:27px;height:27px;padding:0;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--muted);font-size:1rem;cursor:pointer;transition:transform .25s,background .25s,color .25s}
-.nav-service-menu.is-open .mega-toggle{transform:rotate(180deg);background:var(--surface-2);color:var(--primary)}
+.mega-toggle{display:grid;place-items:center;width:27px;height:27px;padding:0;border:0;border-radius:0;background:transparent;color:var(--muted);font-size:1.2rem;line-height:1;cursor:pointer;transition:color .25s}
+.nav-service-menu.is-open .mega-toggle{background:transparent;color:var(--primary)}
 .services-mega-menu{position:absolute;top:100%;left:0;right:0;z-index:50;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;width:100%;padding:22px max(24px,calc((100vw - var(--max))/2));border:1px solid var(--line);border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent);border-radius:0 0 28px 28px;background:color-mix(in srgb,var(--surface) 97%,transparent);box-shadow:0 24px 70px rgba(35,20,38,.2);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-10px);transition:opacity .22s,transform .22s,visibility .22s}
 .services-mega-menu:before{content:"EXPLORE VOGUE SERVICES";grid-column:1/-1;display:block;margin:0 2px 3px;color:var(--primary);font-size:.68rem;font-weight:800;letter-spacing:.18em}
 .nav-service-menu:hover .services-mega-menu,.nav-service-menu:focus-within .services-mega-menu,.nav-service-menu.is-open .services-mega-menu,.topbar:hover .services-mega-menu,.site-header:hover .services-mega-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
@@ -246,14 +246,15 @@
           const open = serviceMenu.classList.toggle('is-open');
           serviceToggle.setAttribute('aria-expanded', String(open));
           serviceToggle.setAttribute('aria-label', open ? 'Close services menu' : 'Open services menu');
+          serviceToggle.textContent = open ? '⌃' : '⌄';
         });
         document.addEventListener('click', event => {
-          if (!serviceMenu.contains(event.target)) { serviceMenu.classList.remove('is-open'); serviceToggle.setAttribute('aria-expanded', 'false'); }
+          if (!serviceMenu.contains(event.target)) { serviceMenu.classList.remove('is-open'); serviceToggle.setAttribute('aria-expanded', 'false'); serviceToggle.setAttribute('aria-label', 'Open services menu'); serviceToggle.textContent = '⌄'; }
         });
         document.addEventListener('keydown', event => {
-          if (event.key === 'Escape') { serviceMenu.classList.remove('is-open'); serviceToggle.setAttribute('aria-expanded', 'false'); serviceToggle.focus(); }
+          if (event.key === 'Escape') { serviceMenu.classList.remove('is-open'); serviceToggle.setAttribute('aria-expanded', 'false'); serviceToggle.setAttribute('aria-label', 'Open services menu'); serviceToggle.textContent = '⌄'; serviceToggle.focus(); }
         });
-        serviceMenu.querySelectorAll('.mega-service-card').forEach(link => link.addEventListener('click', () => { serviceMenu.classList.remove('is-open'); serviceToggle.setAttribute('aria-expanded', 'false'); }));
+        serviceMenu.querySelectorAll('.mega-service-card').forEach(link => link.addEventListener('click', () => { serviceMenu.classList.remove('is-open'); serviceToggle.setAttribute('aria-expanded', 'false'); serviceToggle.setAttribute('aria-label', 'Open services menu'); serviceToggle.textContent = '⌄'; }));
       }
       menuButton.addEventListener('click', () => {
         const open = navLinks.classList.toggle('open');
