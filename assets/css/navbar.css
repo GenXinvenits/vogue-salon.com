@@ -79,3 +79,36 @@
   }
   .nav-links .nav-book-mobile{min-height:52px}
 }
+
+
+/* Button-style tabs within the mobile hamburger menu. */
+@media(max-width:680px){
+  .nav-links>a:not(.nav-book-mobile),.nav-links .nav-service-menu>.services-nav-link{
+    display:flex;
+    align-items:center;
+    width:100%;
+    min-height:52px;
+    padding:14px 16px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--bg);
+    color:var(--ink);
+    box-shadow:0 2px 7px rgba(35,20,38,.04);
+    text-decoration:none;
+  }
+  .nav-links>a:not(.nav-book-mobile):hover,.nav-links>a:not(.nav-book-mobile):active,
+  .nav-links>a:not(.nav-book-mobile):focus-visible,
+  .nav-links .nav-service-menu>.services-nav-link:hover,
+  .nav-links .nav-service-menu>.services-nav-link:active,
+  .nav-links .nav-service-menu>.services-nav-link:focus-visible{
+    background:var(--surface-2);
+    border-color:color-mix(in srgb,var(--primary) 42%,var(--line));
+    color:var(--primary);
+    outline:none;
+  }
+  .nav-service-menu{gap:6px}
+  .nav-links .nav-book-mobile{
+    border-radius:14px;
+    box-shadow:0 6px 16px color-mix(in srgb,var(--primary) 20%,transparent);
+  }
+}
