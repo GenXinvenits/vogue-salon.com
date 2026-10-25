@@ -24,9 +24,11 @@
     feed.replaceChildren();
     feed.classList.add('instagram-feed-local');
 
+    const cards = [];
     items.forEach((item, index) => {
       const card = document.createElement('article');
-      card.className = 'instagram-tile' + (index === 0 ? ' instagram-tile-feature' : '');
+      card.className = 'instagram-tile gallery-media-tile' + (index === 0 ? ' instagram-tile-feature' : '');
+      card.dataset.mediaType = item.type;
 
       let visual;
       if (item.type === 'video') {
@@ -48,26 +50,52 @@
       visual.classList.add('instagram-media-visual');
       card.append(visual);
 
-      const overlay = document.createElement('a');
-      overlay.className = 'instagram-tile-overlay';
-      overlay.href = item.href;
-      overlay.target = '_blank';
-      overlay.rel = 'noopener noreferrer';
-      const small = document.createElement('small');
-      small.textContent = item.label;
-      const strong = document.createElement('strong');
-      strong.textContent = item.title;
-      const linkText = document.createElement('b');
-      linkText.textContent = item.href === profile ? 'Visit Instagram profile ↗' : 'View on Instagram ↗';
-      overlay.append(small, strong, linkText);
-      card.append(overlay);
+      const caption = document.createElement('div');
+      caption.className = 'gallery-media-caption';
+      const small = document.createElement('span');
+      small.className = 'gallery-media-label';
+      small.textContent = item.type === 'video' ? '▶  REEL' : '◎  PHOTO';
+      const title = document.createElement('strong');
+      title.textContent = item.title;
+      caption.append(small, title);
+      card.append(caption);
 
-      const type = document.createElement('span');
-      type.className = 'instagram-type';
-      type.setAttribute('aria-hidden', 'true');
-      type.textContent = item.type === 'video' ? '▶' : '◎';
-      card.append(type);
+      const link = document.createElement('a');
+      link.className = 'gallery-open-post';
+      link.href = item.href;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.setAttribute('aria-label', 'Open ' + item.title + ' on Instagram');
+      link.innerHTML = '<span aria-hidden="true">↗</span>';
+      card.append(link);
+
       feed.append(card);
+      cards.push(card);
     });
+
+    if (isGallery) {
+      const counts = {
+        all: items.length,
+        image: items.filter(item => item.type === 'image').length,
+        video: items.filter(item => item.type === 'video').length
+      };
+      feed.closest('.gallery-lookbook')?.querySelectorAll('[data-gallery-count]').forEach(node => {
+        node.textContent = String(counts[node.dataset.galleryCount] ?? items.length);
+      });
+      feed.closest('.gallery-lookbook')?.querySelectorAll('[data-gallery-filter]').forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.dataset.galleryFilter;
+          feed.classList.toggle('gallery-filtered', filter !== 'all');
+          cards.forEach(card => {
+            card.hidden = filter !== 'all' && card.dataset.mediaType !== filter;
+          });
+          feed.closest('.gallery-lookbook').querySelectorAll('[data-gallery-filter]').forEach(other => {
+            const active = other === button;
+            other.classList.toggle('is-active', active);
+            other.setAttribute('aria-pressed', String(active));
+          });
+        });
+      });
+    }
   });
 })();
