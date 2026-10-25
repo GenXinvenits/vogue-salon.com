@@ -1,0 +1,30 @@
+/* Shared developer-credit ticker at the very bottom of every footer. */
+.footer-credit-ticker{
+  position:relative;
+  overflow:hidden;
+  width:100%;
+  border-top:1px solid var(--line);
+  background:var(--surface-2);
+  color:var(--muted);
+  padding:12px 0;
+}
+.footer-credit-track{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  width:max-content;
+  white-space:nowrap;
+  animation:footer-credit-marquee 30s linear infinite;
+  will-change:transform;
+}
+.footer-credit-track>span{font-size:.72rem;letter-spacing:.06em}
+.footer-credit-track strong{color:var(--ink);font-weight:800}
+.footer-credit-track>span[aria-hidden=true]{color:var(--primary);font-size:.8rem}
+.footer-credit-ticker:hover .footer-credit-track{animation-play-state:paused}
+@keyframes footer-credit-marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@media(prefers-reduced-motion:reduce){
+  .footer-credit-track{animation:none;justify-content:center;width:100%;flex-wrap:wrap;white-space:normal;padding:0 16px}
+}
