@@ -58,6 +58,8 @@ html[data-theme=dark]{color-scheme:dark;--bg:#171319;--surface:#231e25;--surface
 
 /* Image-led services mega menu */
 .nav-service-menu{position:relative;display:flex;align-items:center;gap:2px}
+/* Keep the hover target continuous across the visual gap above the dropdown. */
+.nav-service-menu:after{content:"";position:absolute;top:100%;left:-12px;right:-12px;height:22px}
 .nav-service-menu>.services-nav-link{display:inline-flex;align-items:center;min-height:40px}
 .mega-toggle{display:grid;place-items:center;width:27px;height:27px;padding:0;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--muted);font-size:1rem;cursor:pointer;transition:transform .25s,background .25s,color .25s}
 .nav-service-menu.is-open .mega-toggle{transform:rotate(180deg);background:var(--surface-2);color:var(--primary)}
